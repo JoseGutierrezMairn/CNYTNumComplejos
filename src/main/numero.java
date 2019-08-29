@@ -1,3 +1,4 @@
+package main;
 
 public class numero {
 	
@@ -8,7 +9,11 @@ public class numero {
 		this.real= real;
 		this.imagi= imagi;
 	}
-	
+	public double fase() {
+		double answ = Math.atan((this.imagi)/(this.real));
+		answ = (((answ)*(180))/(Math.PI));
+		return answ;
+	}
 	
 	public double modulo () {
 		double a = this.real * this.real;
@@ -17,7 +22,9 @@ public class numero {
 	}
 	
 	public numero conjugado(){
-		return new numero(this.real, this.imagi);
+		return new numero(this.real, -this.imagi);
 		
 	}
+	
+	
 }

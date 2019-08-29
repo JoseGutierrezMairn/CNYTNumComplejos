@@ -1,3 +1,4 @@
+package main;
 
 public class calculadora {
 	
@@ -48,10 +49,10 @@ public class calculadora {
 	}
 	
 	public static double fase(numero x) {
-		double answ = Math.atan((x.imagi)/(x.real));
-		answ = ( (answ * 180) / Math.PI);
-		return answ;
+		return x.fase();
 	}
+	
+
 	
 	
 	
