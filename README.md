@@ -1,3 +1,24 @@
+# ¿Cómo instalar la libreria de números complejos?
+
+_Para descargarla tenemos que usar la consola del computador (cmd) para clonar el archivo, una vez clonado el archivo podemos empezar a usarlo._
+
+
+
+# ¿Cómo se clona el archivo?
+
+_en la consola debemos escribir "git clone xx", donde xx es es link del archivo que aparece en el botón verde que dice "Clonar o descargar"._ 
+
+
+# ¿Cómo puedo usar la librería?
+
+
+_Después de haber clonado el archivo ya estará listo para ser usado, simplemente tienes que abrir cualquier compilador de java, como lo es eclipse o netbeans y abrir el archivo de los numeros complejos, en él podrás encontrar diferentes paquetes y clases, algunas de las clases son para realizar las funciones de la calculadora o simplemente para crear matries o vectores y realizar operaciones entre ellos, una sola clase es para probar la funcionalidad de la calculadora, es decir evalúa que tan bien opera la calculadora las matrices o vectores._
+
+
+# ¿Cómo pruebo la librería?
+
+_Entre los paquetes encontrarás uno con el nombre de tests, en la clase que encuentras ahí podras probar la funcionaliad de la librería, la librería trae pruebas donde se demuestra que realiza de manera apropiada sus funciones, pero si quieres puedes crear tu propia prueba y probar la librería haciendo uso de los métodos disponibles en las otras clases._
+
 # CNYTNumComplejos
 
 # Definición número complejo:
