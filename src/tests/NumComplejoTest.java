@@ -1,8 +1,12 @@
 package tests;
 import static org.junit.Assert.assertEquals;
 
-import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
 
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+import main.Matriz;
 import main.calculadora;
 import main.numero;
 class NumComplejoTest {
@@ -111,6 +115,318 @@ class NumComplejoTest {
 		numero x = new numero(4,-3);
 		double y = calculadora.fase(x);
 		assertEquals(-36.87,y,2.0);
+	}
+	
+	
+	@Test
+	public void sumaVector() {
+		ArrayList<numero> aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> rta = new ArrayList<ArrayList<numero>>();
+		aux.add(new numero(3,-3));
+		aux.add(new numero(4,2));
+		rta.add(aux);
+		
+		Matriz def = new Matriz(rta);
+		aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> a1 = new ArrayList<ArrayList<numero>>();
+		aux = new ArrayList<numero>();
+		aux.add(new numero(1,-1));
+		aux.add(new numero(3,1));
+		a1.add(aux);
+		Matriz a = new Matriz(a1);
+		
+		ArrayList<ArrayList<numero>> b1 = new ArrayList<ArrayList<numero>>();
+		aux = new ArrayList<numero>();
+		aux.add(new numero(2,-2));
+		aux.add(new numero(1,1));
+		b1.add(aux);
+		Matriz b = new Matriz(b1);
+		Matriz answ = calculadora.sumaMatrices(a, b);
+		
+		assertEquals(def.getFila(0).get(0).real, answ.getFila(0).get(0).real,2.0);
+		assertEquals(def.getFila(0).get(0).imagi, answ.getFila(0).get(0).imagi,2.0);
+		
+		assertEquals(def.getFila(0).get(1).real, answ.getFila(0).get(1).real,2.0);
+		assertEquals(def.getFila(0).get(1).imagi, answ.getFila(0).get(1).imagi,2.0);
+		
+	}
+	
+	
+	
+	@Test
+	public void multiplicaMatriz() {
+		ArrayList<numero> aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> rta = new ArrayList<ArrayList<numero>>();
+		aux.add(new numero(4,0));
+		aux.add(new numero(5,0));
+		rta.add(aux);
+		
+		aux = new ArrayList<numero>();
+		aux.add(new numero(5,0));
+		aux.add(new numero(4,0));
+		rta.add(aux);
+		
+		
+		Matriz def = new Matriz(rta);
+		aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> a1 = new ArrayList<ArrayList<numero>>();
+		aux = new ArrayList<numero>();
+		aux.add(new numero(1,0));
+		aux.add(new numero(2,0));
+		a1.add(aux);
+		
+		aux = new ArrayList<numero>();
+		aux.add(new numero(2,0));
+		aux.add(new numero(1,0));
+		a1.add(aux);
+
+		
+		Matriz a = new Matriz(a1);
+		
+		ArrayList<ArrayList<numero>> b1 = new ArrayList<ArrayList<numero>>();
+		aux = new ArrayList<numero>();
+		aux.add(new numero(2,0));
+		aux.add(new numero(1,0));
+		b1.add(aux);
+		
+		aux = new ArrayList<numero>();
+		aux.add(new numero(1,0));
+		aux.add(new numero(2,0));
+		b1.add(aux);
+		
+		Matriz b = new Matriz(b1);
+		
+		Matriz answ = calculadora.multiplicacionMatrices(a, b);
+		
+		assertEquals(def.getFila(0).get(0).real, answ.getFila(0).get(0).real,2.0);
+		assertEquals(def.getFila(0).get(0).imagi, answ.getFila(0).get(0).imagi,2.0);
+		
+		assertEquals(def.getFila(0).get(1).real, answ.getFila(0).get(1).real,2.0);
+		assertEquals(def.getFila(0).get(1).imagi, answ.getFila(0).get(1).imagi,2.0);
+		
+		assertEquals(def.getFila(1).get(1).real, answ.getFila(1).get(1).real,2.0);
+		assertEquals(def.getFila(1).get(1).imagi, answ.getFila(1).get(1).imagi,2.0);
+		
+		assertEquals(def.getFila(1).get(0).real, answ.getFila(1).get(0).real,2.0);
+		assertEquals(def.getFila(1).get(0).imagi, answ.getFila(1).get(0).imagi,2.0);
+		
+	}
+	
+	
+	@Test
+	public void hallaTranspuesta() {
+		ArrayList<numero> aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> rta = new ArrayList<ArrayList<numero>>();
+		aux.add(new numero(1,0));
+		aux.add(new numero(3,0));
+		rta.add(aux);
+		
+		aux = new ArrayList<numero>();
+		aux.add(new numero(2,0));
+		aux.add(new numero(4,0));
+		rta.add(aux);
+		
+		
+		Matriz def = new Matriz(rta);
+		aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> a1 = new ArrayList<ArrayList<numero>>();
+		aux = new ArrayList<numero>();
+		aux.add(new numero(1,0));
+		aux.add(new numero(2,0));
+		a1.add(aux);
+		
+		aux = new ArrayList<numero>();
+		aux.add(new numero(3,0));
+		aux.add(new numero(4,0));
+		a1.add(aux);
+
+		
+		Matriz a = new Matriz(a1);
+		
+
+		Matriz answ = calculadora.transpuesta(a);
+		
+		assertEquals(def.getFila(0).get(0).real, answ.getFila(0).get(0).real,2.0);
+		assertEquals(def.getFila(0).get(0).imagi, answ.getFila(0).get(0).imagi,2.0);
+		
+		assertEquals(def.getFila(0).get(1).real, answ.getFila(0).get(1).real,2.0);
+		assertEquals(def.getFila(0).get(1).imagi, answ.getFila(0).get(1).imagi,2.0);
+		
+		assertEquals(def.getFila(1).get(1).real, answ.getFila(1).get(1).real,2.0);
+		assertEquals(def.getFila(1).get(1).imagi, answ.getFila(1).get(1).imagi,2.0);
+		
+		assertEquals(def.getFila(1).get(0).real, answ.getFila(1).get(0).real,2.0);
+		assertEquals(def.getFila(1).get(0).imagi, answ.getFila(1).get(0).imagi,2.0);
+		
+	}
+	
+	
+	
+	@Test
+	public void sacaConjugadoDeMatriz() {
+		ArrayList<numero> aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> rta = new ArrayList<ArrayList<numero>>();
+		aux.add(new numero(1,0));
+		aux.add(new numero(2,1));
+		rta.add(aux);
+		
+		aux = new ArrayList<numero>();
+		aux.add(new numero(3,0));
+		aux.add(new numero(4,0));
+		rta.add(aux);
+		
+		
+		Matriz def = new Matriz(rta);
+		aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> a1 = new ArrayList<ArrayList<numero>>();
+		aux = new ArrayList<numero>();
+		aux.add(new numero(1,0));
+		aux.add(new numero(2,-1));
+		a1.add(aux);
+		
+		aux = new ArrayList<numero>();
+		aux.add(new numero(3,0));
+		aux.add(new numero(4,0));
+		a1.add(aux);
+
+		
+		Matriz a = new Matriz(a1);
+		
+
+		Matriz answ = calculadora.matrizConjugada(a);
+		
+
+		assertEquals(def.getFila(0).get(0).real, answ.getFila(0).get(0).real,2.0);
+		assertEquals(def.getFila(0).get(0).imagi, answ.getFila(0).get(0).imagi,2.0);
+		
+		assertEquals(def.getFila(0).get(1).real, answ.getFila(0).get(1).real,2.0);
+		assertEquals(def.getFila(0).get(1).imagi, answ.getFila(0).get(1).imagi,2.0);
+		
+		assertEquals(def.getFila(1).get(1).real, answ.getFila(1).get(1).real,2.0);
+		assertEquals(def.getFila(1).get(1).imagi, answ.getFila(1).get(1).imagi,2.0);
+		
+		assertEquals(def.getFila(1).get(0).real, answ.getFila(1).get(0).real,2.0);
+		assertEquals(def.getFila(1).get(0).imagi, answ.getFila(1).get(0).imagi,2.0);
+		
+	}
+	
+	
+	@Test
+	public void sacaAdjuntaDeMatriz() {
+		ArrayList<numero> aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> rta = new ArrayList<ArrayList<numero>>();
+		aux.add(new numero(1,0));
+		aux.add(new numero(3,0));
+		rta.add(aux);
+		
+		aux = new ArrayList<numero>();
+		aux.add(new numero(2,1));
+		aux.add(new numero(4,0));
+		rta.add(aux);
+		
+		
+		Matriz def = new Matriz(rta);
+		aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> a1 = new ArrayList<ArrayList<numero>>();
+		aux = new ArrayList<numero>();
+		aux.add(new numero(1,0));
+		aux.add(new numero(2,-1));
+		a1.add(aux);
+		
+		aux = new ArrayList<numero>();
+		aux.add(new numero(3,0));
+		aux.add(new numero(4,0));
+		a1.add(aux);
+
+		
+		Matriz a = new Matriz(a1);
+		
+
+		Matriz answ = calculadora.matrizConjugada(a);
+		
+
+		assertEquals(def.getFila(0).get(0).real, answ.getFila(0).get(0).real,2.0);
+		assertEquals(def.getFila(0).get(0).imagi, answ.getFila(0).get(0).imagi,2.0);
+		
+		assertEquals(def.getFila(0).get(1).real, answ.getFila(0).get(1).real,2.0);
+		assertEquals(def.getFila(0).get(1).imagi, answ.getFila(0).get(1).imagi,2.0);
+		
+		assertEquals(def.getFila(1).get(1).real, answ.getFila(1).get(1).real,2.0);
+		assertEquals(def.getFila(1).get(1).imagi, answ.getFila(1).get(1).imagi,2.0);
+		
+		assertEquals(def.getFila(1).get(0).real, answ.getFila(1).get(0).real,2.0);
+		assertEquals(def.getFila(1).get(0).imagi, answ.getFila(1).get(0).imagi,2.0);
+		
+	}
+	
+	
+	@Test
+	public void productoTensor() {
+		ArrayList<numero> aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> rta = new ArrayList<ArrayList<numero>>();
+		aux.add(new numero(12,0));
+		aux.add(new numero(8,0));
+		aux.add(new numero(-6,0));
+		aux.add(new numero(18,0));
+		aux.add(new numero(12,0));
+		aux.add(new numero(-9,0));
+		rta.add(aux);
+		
+		
+		Matriz def = new Matriz(rta);
+		aux = new ArrayList<numero>();
+		
+		ArrayList<ArrayList<numero>> a1 = new ArrayList<ArrayList<numero>>();
+		aux = new ArrayList<numero>();
+		aux.add(new numero(2,0));
+		aux.add(new numero(3,0));
+		a1.add(aux);
+		Matriz a = new Matriz(a1);
+		
+		
+		ArrayList<ArrayList<numero>> b1 = new ArrayList<ArrayList<numero>>();
+		aux = new ArrayList<numero>();
+		aux.add(new numero(6,0));
+		aux.add(new numero(4,0));
+		aux.add(new numero(-3,0));
+		b1.add(aux);
+
+		
+		Matriz b = new Matriz(b1);
+		
+
+		Matriz answ = calculadora.productoTensor(a,b);
+		
+
+		assertEquals(def.getFila(0).get(0).real, answ.getFila(0).get(0).real,2.0);
+		assertEquals(def.getFila(0).get(0).imagi, answ.getFila(0).get(0).imagi,2.0);
+
+		assertEquals(def.getFila(0).get(1).real, answ.getFila(0).get(1).real,2.0);
+		assertEquals(def.getFila(0).get(1).imagi, answ.getFila(0).get(1).imagi,2.0);
+		
+		assertEquals(def.getFila(0).get(2).real, answ.getFila(0).get(2).real,2.0);
+		assertEquals(def.getFila(0).get(2).imagi, answ.getFila(0).get(2).imagi,2.0);
+		
+		assertEquals(def.getFila(0).get(3).real, answ.getFila(0).get(3).real,2.0);
+		assertEquals(def.getFila(0).get(3).imagi, answ.getFila(0).get(3).imagi,2.0);
+		
+		assertEquals(def.getFila(0).get(4).real, answ.getFila(0).get(4).real,2.0);
+		assertEquals(def.getFila(0).get(4).imagi, answ.getFila(0).get(4).imagi,2.0);
+		
+		assertEquals(def.getFila(0).get(5).real, answ.getFila(0).get(5).real,2.0);
+		assertEquals(def.getFila(0).get(5).imagi, answ.getFila(0).get(5).imagi,2.0);
+		
 	}
 
 }
