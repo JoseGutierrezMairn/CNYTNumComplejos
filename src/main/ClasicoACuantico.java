@@ -23,7 +23,7 @@ public class ClasicoACuantico {
 		
 		int resultado = 1 + valor + change;
 		Matriz answ = new Matriz(new ArrayList<ArrayList<numero>>());
-		ArrayList<numero> fil = new ArrayList<numero>;
+		ArrayList<numero> fil = new ArrayList<numero>();
 		for(int i = 0; i <resultado; i++) {
 			for(int j = 0; j <resultado; j++) {
 				fil.add(new numero(0,0));
@@ -36,7 +36,7 @@ public class ClasicoACuantico {
 		numero probabilidad = new numero(res, 0);
 		for(int k = 1; k < valor; k++) {
 			fil= answ.getFila(k);
-			fil.get(0) = probabilidad;
+			fil.set(0, probabilidad);
 			answ.updatePos(k, fil);
 		}
 		
@@ -46,7 +46,7 @@ public class ClasicoACuantico {
 		for(int number1 = valor+1; number1 < resultado; number1++) {
 			fil= answ.getFila(number1);
 			for(int number2 = 1; number2 < valor; number2++) {
-				fil.get(number2) = prob;
+				fil.set(number2, prob);
 				answ.updatePos(number1, fil);
 				if((change % valor) == 1) {
 					
@@ -60,7 +60,7 @@ public class ClasicoACuantico {
 			fil= answ.getFila(number3);
 			for(int number4 = valor+1; number4 < valor; number4++) {
 				if(number3==0) {
-					fil.get(number3) = number4;
+					fil.set(0, number4);
 					answ.updatePos(number3, fil);
 				}
 			}
@@ -138,5 +138,63 @@ public class ClasicoACuantico {
 		return matriz;
 	}
 	
+	
+	public static String[][] experimentoRendijaDobleNumerosComplejos(int cantRendijas){
+        int totalRendijas = (cantRendijas*3)+2;
+        String[][] sistema = new String[totalRendijas][totalRendijas];
+        String prob = Integer.toString(cantRendijas);
+        int contR=0;
+        int correc=0;
+        int contT=0;
+        for(int i=0;i<sistema.length;i++){
+            int cont=0;
+            for(int j=0;j<sistema[0].length;j++){
+                if(contR==3){
+                    contR = 0;
+                    correc++;
+                }if(i==j && i>cantRendijas){
+                    sistema[i][j] = "1";
+                }else if(j==0 && i>0 && i<=cantRendijas){
+                    sistema[i][j] = "1/?"+prob;
+                }else if(j>0 && j<=cantRendijas && i>cantRendijas && (cont==0 || contR==0)){
+                    if(correc!=0 && contR!=0){
+                        if(contT==0){
+                        	System.out.println('True');
+                            sistema[i][j+correc] = "-1+i/?6";
+                        }else if (contT==1){
+                            sistema[i][j+correc] = "-1-i/?6";
+                            System.out.println('Si');
+                        }else{
+                            sistema[i][j+correc] = "1-i/?6";
+                            contT=-1;
+                            System.out.println('No');
+                        }
+                        sistema[i][j] = "0";
+                        int guia = correc;
+                        while(guia>1){
+                            sistema[i][j+guia-1] = "0";
+                            guia--;
+                        }
+                        j+=correc;
+                    }else{
+                        if(contT==0){
+                            sistema[i][j] = "-1+i/?6";
+                        }else if (contT==1){
+                            sistema[i][j] = "-1-i/?6";
+                        }else{
+                            sistema[i][j] = "1-i/?6";
+                            contT=-1;
+                        }
+                    }
+                    contT++;
+                    cont++;
+                    contR++;
+                }else{
+                    sistema[i][j] = "0";
+                }
+            }
+        }
+        return sistema;
+    }
 
 }
