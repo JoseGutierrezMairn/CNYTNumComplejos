@@ -43,6 +43,10 @@ public class Matriz {
 		return m.get(fil).get(col);
 	}
 	
+	public numero updatePos(int i , ArrayList<numero> value) {
+		m.get(i) = value;
+	}
+	
 	
 	
 	

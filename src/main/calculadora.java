@@ -210,7 +210,7 @@ public class calculadora {
 	
 	public static Matriz productoTensor(Matriz a, Matriz b) {
 		 Matriz answ = new Matriz(new ArrayList<ArrayList<numero>>());
-		 ArrayList<numero> temp = new ArrayList<numero>();
+		 ArrayList<ArrayList<numero>> temp =new ArrayList<ArrayList<numero>>();
 		 for(int i = 0; i < a.fil; i++) {
 			 for(numero num : a.getFila(i)) {
 				 int j = 0;
