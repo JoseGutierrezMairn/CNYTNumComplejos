@@ -79,3 +79,28 @@ Elúmero complejo que se obtiene por simetría del dado respecto del eje de absc
 Ejemplo:
 
 a+bi = a-bi
+# Simulacion de lo clásico a lo cuantico
+_Este reto permite el calculo de un sistema deterministico clasico segun la cantidad de clicks.
+
+Es decir con este reto podemos conocer el estado de las canicas despues de una cantidad de clicks ingresados por el usuario._
+
+#  Teoría Cuántica básica
+#  Sistema cuántico de partícula en una línea:
+#   Probabilidad de transitar del primer vector al segundo.
+_Gracias a este programa podemos calcular la probabilidad de transitar de un vector a otro._
+
+
+#      Probabilidad de encontrar una particula en una posición en particular
+_podemos calcular la probabilidad de encontrar una particula en una posicion dada con el codigo que se encuentra en este repositorio._
+
+
+
+#  Programming Drill 3.2.2 - Quantum Computing for Computer Scientists
+_En este reto nos piden calcular la matriz de probabilidades del experimento de doble rendija para el desarrollo nos dan la cantidad de rendijas que pueden haber en el experimento.
+
+Es decir con este reto podemos calcular la matriz de probabilidades segun la cantidad de rendijas dadas por el usuario.__
+
+#  Programming Drill 3.3.1 - Quantum Computing for Computer Scientists.
+_En este reto nos piden calcular la matriz de probabilidades del experimento de doble rendija con numeros complejos para el desarrollo nos dan la cantidad de rendijas que pueden haber en el experimento.
+
+Es decir con este reto podemos calcular la matriz de probabilidades de numeros complejos segun la cantidad de rendijas dadas por el usuario._
