@@ -94,6 +94,16 @@ _Gracias a este programa podemos calcular la probabilidad de transitar de un vec
 _podemos calcular la probabilidad de encontrar una particula en una posicion dada con el codigo que se encuentra en este repositorio._
 
 
+#  Programming Drill 3.1.1 - Quantum Computing for Computer Scientists.
+_Este reto permite el calculo de un sistema deterministico clasico segun la cantidad de clicks.
+
+Es decir con este reto podemos conocer el estado de las canicas despues de una cantidad de clicks ingresados por el usuario._
+
+
+#   Programming Drill 3.2.1 - Quantum Computing for Computer Scientists.
+_Este reto permite el calculo de un sistema probabilistico segun la cantidad de clicks.
+
+Es decir con este reto podemos calcular la probabilidad de que haya una particula en el vector de estado._
 
 #  Programming Drill 3.2.2 - Quantum Computing for Computer Scientists
 _En este reto nos piden calcular la matriz de probabilidades del experimento de doble rendija para el desarrollo nos dan la cantidad de rendijas que pueden haber en el experimento.
